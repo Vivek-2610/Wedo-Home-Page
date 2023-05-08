@@ -69,7 +69,3 @@ btn.on('click', function (e) {
 });
 
 
-$(document).ready(function () {
-    $(".news button.slick-prev").html("<i class= \"bi bi-arrow-left\"></i>");
-    $(".news button.slick-next").html("<i class= \"bi bi-arrow-right\"></i>")
-});

@@ -9,9 +9,12 @@
     --black: black;
     --gray: #CFCFCF;
     --copyright-bg: #222222;
+    --carousel-color: rgba(217, 217, 217, 0.2);
+
 
 }
 
+/* Common CSS */
 body {
     font-family: 'Montserrat', sans-serif;
     background-color: var(--gray);
@@ -22,7 +25,7 @@ body {
 }
 
 .spacing {
-    padding: 100px 0;
+    padding-top: 150px;
 }
 
 .main-text {
@@ -31,6 +34,11 @@ body {
 
 .nav-link {
     color: var(--white);
+}
+
+.btn:hover {
+    background-color: var(--white) !important;
+    color: var(--primary-color);
 }
 
 h1 {
@@ -53,6 +61,76 @@ h5 {
     font-weight: 700;
 }
 
+/************************************ Before Line Effect************************************/
+
+.before-line::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    background-color: var(--primary-color);
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.before-line {
+    padding-left: 60px;
+}
+
+.before-line.line-center {
+    padding-left: 00px;
+}
+
+.before-line.line-center::before {
+    left: -60px;
+}
+
+/************************************ Back to Top button ************************************/
+#button {
+    width: 50px;
+    height: 50px;
+    bottom: 30px;
+    right: 30px;
+    transition: all .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1000;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+#button:hover {
+    cursor: pointer;
+    background-color: var(--white);
+}
+
+#button:active {
+    background-color: var(--white);
+}
+
+#button.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+/************************************ Fixed Social Icons ************************************/
+.social-icon {
+    right: 30px;
+    bottom: 80px;
+    z-index: 999;
+}
+
+.social-icon div {
+    width: 50px;
+    height: 50px;
+}
+
+.social-icon>div:hover {
+    background-color: var(--primary-color) !important;
+}
+
+/************************************ Header ************************************/
 .nav-link::before,
 .nav-link::after {
     content: "";
@@ -91,111 +169,37 @@ h5 {
     color: var(--primary-text);
 }
 
-
-.banner .carousel-item {
-    background-image: url("../image/Banner.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 100%;
+.nav-btn button:hover {
+    background-color: var(--white);
+    color: var(--primary-color) !important;
 }
 
-.banner .carousel-item:nth-child(2) {
-    background-image: url("../image/image\ 25\ \(2\).png");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 100%;
-}
-
-.slides {
+/************************************ Banner section ************************************/
+.carousel .slides {
     padding-right: 500px;
 }
 
 .carousel-indicators .active[data-bs-target] {
-    opacity: 1;
-    background-color: var(--primary-color);
-    border: none;
-    width: 14px;
-    height: 14px;
+    border: 3px solid var(--primary-color);
 }
 
 .carousel-indicators [data-bs-target] {
     box-sizing: content-box;
     flex: 0 1 auto;
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
-    background-color: var(--black);
-    border: 3px solid var(--primary-color);
+    border: 3px solid var(--carousel-color);
+    background-color: var(--carousel-color);
     opacity: 1;
-    transition: all .6s ease;
+
 }
 
+/************************************ Iconic Section ************************************/
 .iconic .slick-active button {
     background-color: var(--primary-color);
     transition: all 0.5s;
-}
-
-.before-line::before {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 3px;
-    background-color: var(--primary-color);
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.before-line {
-    padding-left: 60px;
-}
-
-.before-line.line-center {
-    padding-left: 00px;
-}
-
-.before-line.line-center::before {
-    left: -60px;
-}
-
-
-
-
-.card-wrap {
-    width: 50%;
-    max-width: 255px;
-    margin: 0 auto;
-    padding: 20px;
-    padding-top: 27px;
-    margin-bottom: 50px;
-    transition: 0.5s ease-in-out all;
-}
-
-.card-wrap:nth-child(2),
-.card-wrap:nth-child(4) {
-    margin-top: -40px;
-}
-
-.bg-color-light-dark {
-    background-color: var(--color-light-dark);
-}
-
-.counter-card-wrap .img-wrap.card-images {
-    height: 100px;
-    width: 100px;
-}
-
-.card-images {
-    background: url("../image/Mask\ group\ 1.png");
-    background-size: cover;
-}
-
-
-.card-wrap .counter,
-.card-wrap strong {
-    font-size: 36px;
-    font-weight: 800;
-    line-height: 22px;
+    border: none !important;
 }
 
 .iconic-img {
@@ -214,8 +218,6 @@ h5 {
     margin-top: -200px;
 }
 
-
-
 .iconic .slick-active.slick-slide .iconic-img,
 .iconic .slick-active.slick-slide .iconic-box {
     transform: scale(1);
@@ -232,6 +234,39 @@ h5 {
 
 }
 
+/************************************ Counter Section ************************************/
+.counter-cards {
+    height: 240px;
+}
+
+.counter-row .col-md-6:nth-child(2),
+.counter-row .col-md-6:nth-child(4) {
+    margin-top: -30px;
+}
+
+.bg-color-light-dark {
+    background-color: var(--color-light-dark);
+}
+
+.counter-img {
+    height: 100px;
+    width: 100px;
+}
+
+.counter-img {
+    background: url("../image/Mask\ group\ 1.png");
+    background-size: cover;
+}
+
+
+.counter-cards .counter,
+.counter-cards strong {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 22px;
+}
+
+/************************************ News Section ************************************/
 .news .card-btn {
     color: var(--gray);
 }
@@ -259,13 +294,10 @@ h5 {
     height: 100%;
     top: 50%;
     border: none;
-    background-color: transparent;
-    overflow: hidden;
     transform: translateY(-50%);
     width: auto;
     height: auto;
-    font-size: 32px;
-    background-color: var(--white);
+    font-size: 0px;
     transition: all 0.5s;
 }
 
@@ -282,6 +314,28 @@ h5 {
     left: 100%;
 }
 
+.news .slick-next::after {
+    content: "\F138";
+    font-family: 'bootstrap-icons';
+    font-size: 32px;
+    /* background-color: var(--white); */
+    color: var(--black);
+}
+
+.news .slick-prev::after {
+    content: "\F12F";
+    font-family: 'bootstrap-icons';
+    font-size: 32px;
+    /* background-color: var(--white); */
+    color: var(--black);
+}
+
+.viewall-btn {
+    margin-top: 70px;
+    margin-bottom: 150px;
+}
+
+/************************************ Footer ************************************/
 .social-icon i {
     transition: all 0.5s;
     font-size: 25px;
@@ -336,56 +390,4 @@ h5 {
 
 .copyright {
     background-color: var(--copyright-bg);
-}
-
-#button {
-    width: 50px;
-    height: 50px;
-    bottom: 30px;
-    right: 30px;
-    transition: all .5s;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000;
-    font-size: 32px;
-    font-weight: 900;
-}
-
-#button::after {
-    content: "\f077";
-    font-family: FontAwesome;
-    font-weight: normal;
-    font-style: normal;
-    font-size: 20px;
-    line-height: 50px;
-    color: #fff;
-}
-
-#button:hover {
-    cursor: pointer;
-    background-color: var(--white);
-}
-
-#button:active {
-    background-color: var(--white);
-}
-
-#button.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-.social-icon {
-    right: 030px;
-    bottom: 80px;
-    z-index: 999;
-}
-
-.social-icon div {
-    width: 50px;
-    height: 50px;
-}
-
-.social-icon>div:hover {
-    background-color: var(--primary-color) !important;
 }

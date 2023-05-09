@@ -40,7 +40,14 @@ $(document).ready(function () {
         arrows: true,
         responsive: [
             {
-                breakpoint: 639,
+                breakpoint: 767,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 575,
                 settings: {
                     slidesToShow: 1,
                     slidesToScroll: 1
@@ -69,3 +76,9 @@ btn.on('click', function (e) {
 });
 
 
+///////////////////// Burger Menu /////////////////////
+const burger = document.querySelector('.burger');
+burger.addEventListener('click', () => {
+  burger.classList.toggle('active');
+  $("body").toggleClass("overflow");
+});

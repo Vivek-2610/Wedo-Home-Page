@@ -1,393 +1,98 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap'); @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css");
+:root { --primary-color: #EE9A02; --primary-bg: var(--primary-color); --primary-text: var(--primary-color); --white: white; --black: black; --gray: #CFCFCF; --copyright-bg: #222222; --carousel-color: rgba(217, 217, 217, 0.2); }
+/* Common CSS */ 
+body { font-family: 'Montserrat', sans-serif; background-color: var(--gray); }
+.main-bg { background-color: var(--primary-bg); }
+.spacing { padding-top: 150px; }
+.main-text { color: var(--primary-text); }
+.nav-link { color: var(--white); }
+.btn:hover { background-color: var(--white) !important; color: var(--primary-color); }
+h1 { font-size: 54px; font-weight: 900; }
+h2 { font-size: 50px; font-weight: 900; }
+h3 { font-size: 40px; font-weight: 900; }
+h5 { font-size: 24px; font-weight: 700; }
+a{text-decoration: none; transition: all 0.3s;}
 
-:root {
-    --primary-color: #EE9A02;
-    --primary-bg: var(--primary-color);
-    --primary-text: var(--primary-color);
-    --white: white;
-    --black: black;
-    --gray: #CFCFCF;
-    --copyright-bg: #222222;
-    --carousel-color: rgba(217, 217, 217, 0.2);
-
-
-}
-
-/* Common CSS */
-body {
-    font-family: 'Montserrat', sans-serif;
-    background-color: var(--gray);
-}
-
-.main-bg {
-    background-color: var(--primary-bg);
-}
-
-.spacing {
-    padding-top: 150px;
-}
-
-.main-text {
-    color: var(--primary-text);
-}
-
-.nav-link {
-    color: var(--white);
-}
-
-.btn:hover {
-    background-color: var(--white) !important;
-    color: var(--primary-color);
-}
-
-h1 {
-    font-size: 54px;
-    font-weight: 900;
-}
-
-h2 {
-    font-size: 50px;
-    font-weight: 900;
-}
-
-h3 {
-    font-size: 40px;
-    font-weight: 900;
-}
-
-h5 {
-    font-size: 24px;
-    font-weight: 700;
-}
 
 /************************************ Before Line Effect************************************/
-
-.before-line::before {
-    content: "";
-    position: absolute;
-    width: 50px;
-    height: 3px;
-    background-color: var(--primary-color);
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.before-line {
-    padding-left: 60px;
-}
-
-.before-line.line-center {
-    padding-left: 00px;
-}
-
-.before-line.line-center::before {
-    left: -60px;
-}
+.before-line::before { content: ""; position: absolute; width: 50px; height: 3px; background-color: var(--primary-color); left: 0; top: 8px;}
+.before-line { padding-left: 60px; }
+.before-line.line-center { padding-left: 00px; }
+.before-line.line-center::before { left: -60px; }
 
 /************************************ Back to Top button ************************************/
-#button {
-    width: 50px;
-    height: 50px;
-    bottom: 30px;
-    right: 30px;
-    transition: all .5s;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000;
-    font-size: 32px;
-    font-weight: 900;
-}
+#button { width: 50px; height: 50px; bottom: 30px; right: 30px; transition: all .5s; opacity: 0; visibility: hidden; z-index: 1000; font-size: 32px; font-weight: 900; }
+#button:hover { cursor: pointer; background-color: var(--white); }
+#button:active { background-color: var(--white); }
+#button.show { opacity: 1; visibility: visible; }
 
-#button:hover {
-    cursor: pointer;
-    background-color: var(--white);
-}
+/************************************ Fixed Social Icons ************************************/ 
+.social-icon { right: 30px; bottom: 80px; z-index: 999; }
+.social-icon div { width: 50px; height: 50px; }
+.social-icon>div:hover { background-color: var(--primary-color) !important; }
+.social-icon>div:hover a { color: var(--black) !important; }
 
-#button:active {
-    background-color: var(--white);
-}
+/************************************ Header ************************************/ 
+.nav-link:focus, .nav-link:hover { color: var(--primary-text); }
+.nav-btn button:hover { background-color: var(--white); color: var(--primary-color) !important; }
+.burger {width: 32px;height: 24px;cursor: pointer;right: 2rem;top: 2rem;z-index: 20;}
+.burger span {width: 100%;height: 4px;background-color: var(--white);border-radius: 12px;display: block;transition: background-color 0.5s ease-in-out;margin-top: 20px;}
+.burger span::before,
+.burger span::after {content: "";width: 75%;background-color: var(--white);display: block;transition: all 0.5s ease-in-out;border-radius: 12px;height: 4px;margin-left: auto;}
+.burger span::after {width: 50%;}
+.burger span::before {transform: translateY(-10px);}
+.burger span::after {transform: translateY(10px);margin-top: -4px;}
+.burger.active span {background-color: transparent;}
+.burger.active span::before {transform: rotateZ(45deg) translateY(0);}
+.burger.active span::after {transform: rotateZ(-45deg) translateY(0);width: 75%;}
 
-#button.show {
-    opacity: 1;
-    visibility: visible;
-}
+/************************************ Banner section ************************************/ 
+.carousel .slides { padding-right: 500px; }
+.carousel-indicators .active[data-bs-target] { border: 3px solid var(--primary-color); }
+.carousel-indicators [data-bs-target] { box-sizing: content-box; flex: 0 1 auto; width: 10px; height: 10px; border-radius: 50%; border: 3px solid var(--carousel-color); background-color: var(--carousel-color); opacity: 1;}
 
-/************************************ Fixed Social Icons ************************************/
-.social-icon {
-    right: 30px;
-    bottom: 80px;
-    z-index: 999;
-}
+/************************************ Iconic Section ************************************/ 
+.iconic .slick-active button { background-color: var(--primary-color); transition: all 0.5s; border: none !important; }
+.iconic-img { height: 650px; width: 900px; z-index: -1; }
+.iconic-img img { z-index: -1; }
+.iconic button:hover{background-color: var(--black) !important;}
+.iconic-box { width: 800px; margin: auto; margin-top: -200px; }
+.iconic .slick-active.slick-slide .iconic-img, .iconic .slick-active.slick-slide .iconic-box { transform: scale(1); }
+.iconic .slick-slide .iconic-img { transform: scale(0.8); transition: transform 0.5s ease-in-out; }
+.iconic .slick-slide .iconic-box { transform: translateY(-50px) scale(0.8); transition: transform 0.5s ease-in-out;}
 
-.social-icon div {
-    width: 50px;
-    height: 50px;
-}
-
-.social-icon>div:hover {
-    background-color: var(--primary-color) !important;
-}
-
-/************************************ Header ************************************/
-.nav-link::before,
-.nav-link::after {
-    content: "";
-    border-radius: 50%;
-    position: absolute;
-    bottom: -5px;
-    opacity: 0;
-    transition: all 0.5s ease-in-out;
-}
-
-.nav-link:hover:before,
-.nav-link:hover:after {
-    opacity: 1;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.nav-link::after {
-    height: 12px;
-    width: 12px;
-    background-color: var(--primary-color);
-    left: 0;
-}
-
-.nav-link::before {
-    height: 6px;
-    width: 6px;
-    background-color: var(--black);
-    left: 3px;
-    bottom: -2px;
-    z-index: 2;
-}
-
-.nav-link:focus,
-.nav-link:hover {
-    color: var(--primary-text);
-}
-
-.nav-btn button:hover {
-    background-color: var(--white);
-    color: var(--primary-color) !important;
-}
-
-/************************************ Banner section ************************************/
-.carousel .slides {
-    padding-right: 500px;
-}
-
-.carousel-indicators .active[data-bs-target] {
-    border: 3px solid var(--primary-color);
-}
-
-.carousel-indicators [data-bs-target] {
-    box-sizing: content-box;
-    flex: 0 1 auto;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 3px solid var(--carousel-color);
-    background-color: var(--carousel-color);
-    opacity: 1;
-
-}
-
-/************************************ Iconic Section ************************************/
-.iconic .slick-active button {
-    background-color: var(--primary-color);
-    transition: all 0.5s;
-    border: none !important;
-}
-
-.iconic-img {
-    height: 650px;
-    width: 900px;
-    z-index: -1;
-}
-
-.iconic-img img {
-    z-index: -1;
-}
-
-.iconic-box {
-    width: 800px;
-    margin: auto;
-    margin-top: -200px;
-}
-
-.iconic .slick-active.slick-slide .iconic-img,
-.iconic .slick-active.slick-slide .iconic-box {
-    transform: scale(1);
-}
-
-.iconic .slick-slide .iconic-img {
-    transform: scale(0.8);
-    transition: transform 0.5s ease-in-out;
-}
-
-.iconic .slick-slide .iconic-box {
-    transform: translateY(-50px) scale(0.8);
-    transition: transform 0.5s ease-in-out;
-
-}
-
-/************************************ Counter Section ************************************/
-.counter-cards {
-    height: 240px;
-}
-
-.counter-row .col-md-6:nth-child(2),
-.counter-row .col-md-6:nth-child(4) {
-    margin-top: -30px;
-}
-
-.bg-color-light-dark {
-    background-color: var(--color-light-dark);
-}
-
-.counter-img {
-    height: 100px;
-    width: 100px;
-}
-
-.counter-img {
-    background: url("../image/Mask\ group\ 1.png");
-    background-size: cover;
-}
-
-
-.counter-cards .counter,
-.counter-cards strong {
-    font-size: 36px;
-    font-weight: 800;
-    line-height: 22px;
-}
+/************************************ Counter Section ************************************/ 
+.counter-cards { height: 240px; }
+.counter-row .col-md-6:nth-child(2), .counter-row .col-md-6:nth-child(4) { margin-top: -30px; }
+.bg-color-light-dark { background-color: var(--color-light-dark); }
+.counter-img { height: 100px; width: 100px; }
+.counter-img { background: url("../image/Mask\ group\ 1.png"); background-size: cover; } 
+.counter-cards .counter, .counter-cards strong { font-size: 36px; font-weight: 800; line-height: 22px; }
 
 /************************************ News Section ************************************/
-.news .card-btn {
-    color: var(--gray);
-}
+.news .card-btn { color: var(--gray); }
+.news .slick-slide.slick-current.slick-active+.slick-active .card-btn { color: var(--primary-color); }
+.news .slick-slide.slick-current.slick-active+.slick-active .card-btn::after { background-color: var(--primary-color); }
+.news .card-btn::after { content: ""; background-color: var(--gray); width: 100%; height: 2px; position: absolute; bottom: 0; left: 0; }
+.news .slick-arrow { position: absolute; height: 100%; top: 50%; border: none; transform: translateY(-50%); width: auto; height: auto; font-size: 0px; transition: all 0.5s; }
+.news .slick-arrow:hover { background-color: var(--primary-color); } 
+.news .slick-prev { right: 100%; }
+.news .slick-next { left: 100%; }
+.news .slick-next::after { content: "\F138"; font-family: 'bootstrap-icons'; font-size: 32px;color: var(--black); }
+.news .slick-prev::after { content: "\F12F"; font-family: 'bootstrap-icons'; font-size: 32px;color: var(--black); }
+.viewall-btn { margin-top: 70px; margin-bottom: 150px; }
 
-.news .slick-slide.slick-current.slick-active+.slick-active .card-btn {
-    color: var(--primary-color);
-}
-
-.news .slick-slide.slick-current.slick-active+.slick-active .card-btn::after {
-    background-color: var(--primary-color);
-}
-
-.news .card-btn::after {
-    content: "";
-    background-color: var(--gray);
-    width: 100%;
-    height: 2px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-.news .slick-arrow {
-    position: absolute;
-    height: 100%;
-    top: 50%;
-    border: none;
-    transform: translateY(-50%);
-    width: auto;
-    height: auto;
-    font-size: 0px;
-    transition: all 0.5s;
-}
-
-.news .slick-arrow:hover {
-    background-color: var(--primary-color);
-}
-
-
-.news .slick-prev {
-    right: 100%;
-}
-
-.news .slick-next {
-    left: 100%;
-}
-
-.news .slick-next::after {
-    content: "\F138";
-    font-family: 'bootstrap-icons';
-    font-size: 32px;
-    /* background-color: var(--white); */
-    color: var(--black);
-}
-
-.news .slick-prev::after {
-    content: "\F12F";
-    font-family: 'bootstrap-icons';
-    font-size: 32px;
-    /* background-color: var(--white); */
-    color: var(--black);
-}
-
-.viewall-btn {
-    margin-top: 70px;
-    margin-bottom: 150px;
-}
-
-/************************************ Footer ************************************/
-.social-icon i {
-    transition: all 0.5s;
-    font-size: 25px;
-}
-
-.social-icon i:hover {
-    color: var(--white);
-}
-
-.footer ul {
-    line-height: 50px;
-    list-style-type: none;
-}
-
-.footer ul li {
-    transition: all 0.5s;
-}
-
-.footer {
-    font-size: 20px;
-}
-
-.footer ul li::before {
-    content: '';
-    background-color: var(--primary-color);
-    height: 2px;
-    width: 0px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    left: 0;
-    transition: all 0.5s;
-    border-radius: 1px;
-}
-
-.footer ul li:hover::before {
-    width: 25px;
-}
-
-.footer ul li:hover {
-    line-height: 50px;
-    padding-left: 30px;
-}
-
-.copyright ul li {
-    border-right: 2px solid var(--gray);
-}
-
-.copyright ul li:last-child {
-    border-right: none;
-}
-
-.copyright {
-    background-color: var(--copyright-bg);
-}
+/************************************ Footer ************************************/ 
+.social-icon i {  font-size: 25px; }
+.footer .social-icon i:hover { color: var(--white); transition: all 0.5s;}
+.footer ul { line-height: 40px;}
+.footer ul li { transition: all 0.5s; }
+.footer { font-size: 20px; }
+.footer ul li::before { content: ''; background-color: var(--primary-color); height: 2px; width: 0px; position: absolute; top: 50%; transform: translateY(-50%); left: 0; transition: all 0.5s; border-radius: 1px; }
+.footer ul li:hover::before { width: 25px; }
+.footer ul li:hover {padding-left: 30px; }
+.copyright ul li { border-right: 2px solid var(--gray); }
+.copyright ul li:last-child { border-right: none; }
+.copyright { background-color: var(--copyright-bg); }
+.footer a:hover {color: var(--white) !important;}
+.footer li:hover a{color: var(--white) !important;}

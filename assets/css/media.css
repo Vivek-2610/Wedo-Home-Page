@@ -1,4 +1,8 @@
-@media (max-width: 1399.98px) { }
+@media (max-width: 1399.98px) { 
+    .img-8 {
+        grid-row: unset;
+    }
+}
 
 @media (max-width: 1199.98px) {
     .carousel .slides { padding-right: 200px; }
@@ -12,7 +16,7 @@
     .nav-link::before { height: 6px; width: 6px; background-color: var(--black); left: 3px; bottom: -2px; z-index: 2; }
  }
 @media (max-width: 991.98px) { 
-    /* h1 { font-size: 34px; font-weight: 900; } */
+    h1 { font-size: 34px; font-weight: 900; }
     h2 { font-size: 30px; font-weight: 900; }
     h3 { font-size: 20px; font-weight: 900; }
     h5 { font-size: 16px; font-weight: 700; }
@@ -35,6 +39,11 @@
     .form-grid{row-gap: 20px;column-gap: 10px; grid-template-columns: repeat(4, minmax(0, 1fr));}
     .grid-img{grid-column: span 4 / span 2;}
     .grid-form{grid-column: span 2 / span 2;}
+    .images{grid-template-columns: repeat(3, minmax(0, 1fr));}
+    .img-2{grid-row: span 1;grid-column: span 2;}
+    .img-6{grid-column: span 2;}
+    .img-9{grid-column: span 2;}
+    .img-8 {grid-row: span 2;}
 }
 @media (max-width: 767.98px) {  
     .counter-row .col-md-6:nth-child(2),
@@ -47,6 +56,7 @@
     .social-icon div { width: 30px; height: 30px; }
     .social-icon i {  font-size: 18px; }
     #button { width: 30px; height: 30px; bottom: 30px; right: 20px;font-size: 20px;}
+    .images{gap: 10px;}
 }
 
 @media (max-width: 575.98px) { 
@@ -61,4 +71,6 @@
     .iconic-box { width: 250px;  margin-top: -50px; }
     .nav-btn .btn{ width: 100%;}
     .grid-form{grid-column: span 4 / span 4;}
+    .images{grid-template-columns: repeat(1, minmax(0, 1fr));}
+    .img-grid {grid-row: unset !important;grid-column: unset !important;}
 }

@@ -31,7 +31,7 @@ $(window).scroll(function () {
 //     }
 //   });
 
-  
+///////////////////// Coumter Section/////////////////////
 const counters = document.querySelectorAll(".counter");
 counters.forEach((counter) => {
     counter.innerText = "0";
@@ -53,7 +53,7 @@ counters.forEach((counter) => {
 
 
 
-
+///////////////////// Banner section /////////////////////
 $('.variable-width').slick({
     dots: false,
     infinite: true,
@@ -66,7 +66,7 @@ $('.variable-width').slick({
     prevArrow: false,
     nextArrow: false
 });
-
+///////////////////// News section /////////////////////
 $(document).ready(function () {
     $(".promotions-carousel").slick({
         slidesToShow: 3,
@@ -93,7 +93,7 @@ $(document).ready(function () {
 
 
 
-//  BACK TO TOP BUTTON
+/////////////////////  BACK TO TOP BUTTON/////////////////////
 var btn = $('#button');
 
 $(window).scroll(function () {
